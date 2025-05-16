@@ -76,3 +76,11 @@ After finishing Task 3.4, I opened Excel and enabled the Data Streamer add-in th
 Task 3.6:
 To create the python code to plot the time and frequency domain plots, I first imported the panda library to read the csv. Imported the csv file into google colab, so it could see it. Then wrote the code so it can read the csv and import the data from the csv. I then created the plots for both the time and frequency domain graphs. 
 
+Task 4:
+To optimize the sensor I first had to start using Dynamic Sampling, I made my number_of_samples variable dependent on the samplingrate. I limited Number_of_Samples to MAX_SAMPLES. I changed the 1000ms delay in the task 3.4 code depending on the samplingrate.
+I added a totalvariation variable to track the temperature changes of consecutive values.I then created a function to calculate then moving average, this functions takes the recent changes in temperature and averages them out and gives an idea of the overall trend of the variation of temperature. I modified the decide_power_mode() to use the moving average and the variation threshold to determine the power states.
+I then modified apply_dft() to find the the highest magnitude of frequency and store is as dominantFrequency.
+Finally, I changed the loop to continously collect data after its finish 1 minute of data collection, and to also serial output updates of what the code is doing.
+
+
+
