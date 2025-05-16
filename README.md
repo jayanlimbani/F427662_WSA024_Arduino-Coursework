@@ -57,3 +57,22 @@ Use git fetch and git merge origin/main into your feature branch locally to chec
  What are the consequences of forcing a push without resolving a merge conflict?
 
 It will corrupt the main branch data, and it be confusing to try and rectify errors. It could overwrite team members work and lead to data loss.
+
+Task 3.1:
+I created the function collect_temperature_data() which collects temperature for 3 minutes. I set the sampling rate of the temperature to 1Hz, so it reads the temperature every 1 second, which is that of the active mode. Inside the function, it reads the analog value of the tc thermistor and converts this to a voltage, which is then converts this to a temperature. I then also saved the 180 samples in a array.
+
+Task 3.2:
+I then introduced the function apply_dft(). In this function it carries out the DFT calculations. As arduino can't compute complex numbers, I had to calculate DFT using equation 3.4 and 3.5. The magnitudes from equation 3.5 are also stored for tasks 3.3
+
+Task 3.3:
+Then I created the function send_data_to_pc(), this function then sends the time-domain and frequency-domain data to the serial monitor. It is outputted in a csv format, in the order Time, Temperature, Frequency, and Magnitude.
+
+Task 3.4:
+For task 3.4, I created the function decide_power_mode(), in this function it detemines the power mode depending on the average frequency from the pervious DFT calculations. The power mode is determined and then outputted to the serial monitor.
+
+Task 3.5:
+After finishing Task 3.4, I opened Excel and enabled the Data Streamer add-in through COM Add-ins. After selecting the COM port connected to your Arduino, I renamed the table columns to Time, Temperature, Frequency, and Magnitude. I then started the data stream, allowed it to collect data for around three minutes, and saved the file as threeminstemperature_Student_ID.csv.
+
+Task 3.6:
+To create the python code to plot the time and frequency domain plots, I first imported the panda library to read the csv. Imported the csv file into google colab, so it could see it. Then wrote the code so it can read the csv and import the data from the csv. I then created the plots for both the time and frequency domain graphs. 
+
